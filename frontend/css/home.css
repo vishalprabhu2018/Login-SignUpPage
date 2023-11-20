@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: auto;
+    background: #e5ebf0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.card {
+    background: #ffffff;
+    min-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+img {
+    border-radius: 20em;
+}
+
+p {
+    color: #9c9c9c;
+}
+
+.followers {
+    margin-top: 5px;
+}

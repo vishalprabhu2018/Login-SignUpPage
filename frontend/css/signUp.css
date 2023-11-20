@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: auto;
+    background: #e5ebf0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+
+}
+
+a {
+    text-decoration: none;
+    color: #808080;
+
+}
+
+.card {
+    background: #ffffff;
+    min-width: 28vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.elements {
+    display: flex;
+    flex-direction: column;
+}
+
+.registerPage,
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: .8em;
+}
+
+.links {
+    margin-bottom: 3em;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input {
+    background: #e3f2ff;
+    border: none;
+    width: 20em;
+    height: 1.8em;
+}
+
+#login {
+    background: #429dddee;
+    cursor: pointer;
+}
