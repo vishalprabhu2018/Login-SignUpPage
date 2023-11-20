@@ -32,7 +32,7 @@ a {
 }
 
 .registerPage,
-.form {
+#registerForm {
     display: flex;
     flex-direction: column;
     gap: .8em;
@@ -51,7 +51,7 @@ input {
     height: 1.8em;
 }
 
-#login {
+#signUp {
     background: #429dddee;
     cursor: pointer;
 }

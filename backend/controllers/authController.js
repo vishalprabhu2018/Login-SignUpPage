@@ -36,7 +36,7 @@ const {name, username, email,password,bio}=req.body;
     return res.status(200).json({
       success: true,
       data: result
-    });
+    })
   } catch (error) {
     /// send the message of the email and  username is not unique
 
