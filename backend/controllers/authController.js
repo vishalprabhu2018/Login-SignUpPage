@@ -118,10 +118,25 @@ const {name, username, email,password,bio}=req.body;
    
 }
   
+const  getUser=async(req,res)=>{
+   const userId=req.user.id;
+
+   try{
+    const user=await userModel.findById(userId);
+    return res.status(200).json({
+      success:true,
+      data:user
+    })
+   }
+   catch(e){
+    return res.status(400).json({
+      success:false,
+      message:e.message
+    })
+   }
+}
 
 
 
 
-
-
-module.exports={first,signUp,login}
+module.exports={first,signUp,login,getUser}
