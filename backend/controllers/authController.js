@@ -41,26 +41,29 @@ const {name, username, email,password,bio}=req.body;
     /// send the message of the email and  username is not unique
 
     if (error.code === 11000) {
+
         // Duplicate key error
         if (error.keyPattern.email) {
+
           // Duplicate email error
-          res.status(400).json({ error: `Account already exist with the provided email ${email}` });
+          return res.status(400).json({ error: `Account already exist with the provided email ${email}` }
+          );
         } else if (error.keyPattern.username) {
           // Duplicate username error
-          res.status(400).json({ error:`Account already exist with the provided username ${username}` });
+         return res.status(400).json({ error:`Account already exist with the provided username ${username}` });
         } else {
           // Other duplicate key error, handle accordingly
-          res.status(400).json({ error: 'Duplicate key violation.' });
+        return  res.status(400).json({ error: 'Duplicate key violation.' });
         }
       } else {
         // Other errors
-        res.status(500).json({ error: 'Internal Server Error' });
+       return  res.status(500).json({ error: 'Internal Server Error' });
       }
+
+    
     }
 
-    return res.status(400).json({
-      message: error.message
-    });
+    
   }
 
 
