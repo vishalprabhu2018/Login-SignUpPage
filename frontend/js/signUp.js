@@ -31,7 +31,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
    //Setting the message which display the message in json 
     if(data.success){
         if(data.success==true){
-           p.innerText='Registered successfully'
+           p.innerText='User Registered successfully'
         }
         else{
          p.innerText= data.message;
@@ -42,7 +42,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         p.innerText=data.error;
       }
   
-      //resetting the form or if we don't do that and again submit that data we will get the error.
+      //resetting the form
     form.reset();
 
     setTimeout(()=>{

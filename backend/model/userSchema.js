@@ -1,5 +1,7 @@
 const mongoose=require('mongoose');
+require('dotenv').config();
 const {Schema}=mongoose;
+const JWT=require('jsonwebtoken')
 
 const userSchema=new Schema(
 {
@@ -38,7 +40,20 @@ const userSchema=new Schema(
 
 },{ timestamps: true }
 
-    )
+    );
+
+    //mongoose custom methods
+
+    userSchema.methods={
+        jwtToken(){
+            return  JWT.sign(
+                {id:this._id, email:this.email},
+                 process.env.SECRET,
+                 {expiresIn: '24h'}
+
+            )   
+        }
+    }
 
     const userModel=mongoose.model('User',userSchema);
     module.exports=userModel;

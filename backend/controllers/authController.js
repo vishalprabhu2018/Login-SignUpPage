@@ -67,5 +67,61 @@ const {name, username, email,password,bio}=req.body;
   }
 
 
+  const login=async(req,res)=>{
 
-module.exports={first,signUp}
+    const {username,password}=req.body;
+
+    if ( !username || !password) {
+      return res.status(400).json({
+        success: false,
+        message: "Every field is required"
+      });
+    }
+  
+    try {
+      const user=await userModel
+      .findOne({
+         username
+      })
+      .select('+password')
+  
+  
+     if(!user  || user.password !== password){
+        return res.status(400).json({
+          success: false,
+          message: "invalid credentials"
+      })
+    }
+  
+    const token=user.jwtToken();
+      user.password=undefined;
+  
+      //It is optional
+      const cookieOption={
+        maxAge:24*60*60*1000
+      }
+  
+      res.cookie("token",token,cookieOption);
+      res.status(200).json({
+        success:true,
+        data:user
+      });
+  
+      
+    } catch (error) {
+      res.status(400).json({
+        success:false,
+        message:error.message
+      });
+    }
+   
+   
+}
+  
+
+
+
+
+
+
+module.exports={first,signUp,login}
